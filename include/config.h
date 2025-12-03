@@ -4,10 +4,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
-const uint32_t BUCKETS = 8; // Must be a power of two.
-const uint32_t BUCKET_MASK = BUCKETS - 1;
+extern const uint32_t BUCKETS;
+extern const uint32_t BUCKET_MASK;
 
-const size_t MAX_KEY_LENGTH = 64;
-const size_t MAX_VALUE_LENGTH = 64;
+extern const size_t MAX_KEY_LENGTH;
+extern const size_t MAX_VALUE_LENGTH;
 
 #endif  // KVDB_CONFIG_H
