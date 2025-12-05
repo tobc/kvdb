@@ -82,6 +82,7 @@ bool empty_token(const char* token, const char* line, bool* error) {
 }
 
 bool read_log(const char* key, struct Record* record) {
+
     // Open the file in data/{hash_code}.txt in read mode.
     uint32_t key_hash = hash(key);
     uint32_t bucket = key_hash & BUCKET_MASK;
@@ -89,6 +90,7 @@ bool read_log(const char* key, struct Record* record) {
     sprintf(filename, "data/bucket_%u.csv", bucket);
     FILE* fp = fopen(filename, "r");
     if (fp == NULL) {
+        record->key_count = 0;
         return false;
     }
 
@@ -194,7 +196,8 @@ bool ts(const char* key) {
     struct Record record;
     if (read_log(key, &record)) return true; // errors reported.
     if(record.key_count == 0) {
-        printf("record for key %s not found\n", key);
+        printf("record for key \'%s\' not found\n", key);
+        return false;
     }
     char first_ts_str[64];
     char last_ts_str[64];

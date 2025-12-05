@@ -38,16 +38,20 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 # Phony target for cleaning up generated files
 .PHONY: clean
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	rm -rf $(OBJ_DIR) $(BIN_DIR) $(DATA_DIR)
 
 .PHONY: dropdb
 dropdb:
-	rm -rf $(DATA_DIR)
-	@mkdir -p $(DATA_DIR)
+	rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
 
 .PHONY: test
 test: $(EXECUTABLE)
+	@rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
 	./$(EXECUTABLE) test hash
-
-
-
+	@rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
+	./$(EXECUTABLE) test setget
+	@rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
+	./$(EXECUTABLE) test del
+	@rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
+	./$(EXECUTABLE) test ts
+	@rm -rf $(DATA_DIR); mkdir -p $(DATA_DIR)
