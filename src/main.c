@@ -25,17 +25,23 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(cmd, "get") == 0) {
-        get(key);
+        if(get(key)) {
+            return EXIT_FAILURE;
+        }
         return EXIT_SUCCESS;
     }
 
     if (strcmp(cmd, "del") == 0) {
-        del(key);
+        if(del(key)) {
+            return EXIT_FAILURE;
+        }
         return EXIT_SUCCESS;
     }
 
     if (strcmp(cmd, "ts") == 0) {
-        ts(key);
+        if(ts(key)) {
+            return EXIT_FAILURE;
+        }
         return EXIT_SUCCESS;
     }
     

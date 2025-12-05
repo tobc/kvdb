@@ -39,7 +39,7 @@ bool validate_input(int argc, char* argv[]) {
     const char* key = argv[2];
     const size_t key_length = strlen(key);
     if (key_length > MAX_KEY_LENGTH) {
-        printf("key length of %zu exceeds the max key length of %zu\n",
+        printf("key length of %zu exceeds the max key length of %d\n",
                key_length, MAX_KEY_LENGTH);
         return true;
     }
@@ -49,7 +49,7 @@ bool validate_input(int argc, char* argv[]) {
         const char* value = argv[3];
         const size_t value_length = strlen(value);
         if (value_length > MAX_VALUE_LENGTH) {
-            printf("value length of %zu exceeds the max value length of %zu\n",
+            printf("value length of %zu exceeds the max value length of %d\n",
                    value_length, MAX_VALUE_LENGTH);
             return true;
         }

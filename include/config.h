@@ -7,7 +7,8 @@
 extern const uint32_t BUCKETS;
 extern const uint32_t BUCKET_MASK;
 
-extern const size_t MAX_KEY_LENGTH;
-extern const size_t MAX_VALUE_LENGTH;
+#define MAX_KEY_LENGTH 63
+#define MAX_VALUE_LENGTH 63
+#define MAX_OP_LENGTH 3
 
 #endif  // KVDB_CONFIG_H
