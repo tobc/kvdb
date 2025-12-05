@@ -186,7 +186,7 @@ bool get(const char* key) {
     struct Record record;
     if (read_log(key, &record)) return true; // errors reported.
     if(record.key_count == 0) {
-        printf("record for key %s not found\n", key);
+        printf("record for key \'%s\' not found\n", key);
         return false;
     }
     printf("the key \'%s\' is associated with the value \'%s\'\n", key, record.value);
